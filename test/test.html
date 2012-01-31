@@ -12,10 +12,7 @@
         mocha.setup('bdd');
         $(function() {
             $('body').append('<div id="mocha">');
-            var runner = mocha.run();
-            runner.on('fail', function(e) {
-                console.log('Failure:', e);
-            })
+            mocha.run();
         });
     </script>
 
