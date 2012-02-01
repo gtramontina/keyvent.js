@@ -25,7 +25,7 @@ You may want to keep a copy of this context to use later:
     
     var headerDivKeyboard = keyvent.on(headerDiv);
     (...)
-    headerDiv.up('space');
+    headerDivKeyboard.up('space');
 
 
 The following aliases are supported (borrowed from [https://github.com/madrobby/keymaster](https://github.com/madrobby/keymaster)):
