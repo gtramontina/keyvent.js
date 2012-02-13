@@ -1,5 +1,5 @@
 !(function(moduleName, definition) {
-  // Whether to expose Draggable as an AMD module or to the global object.
+  // Whether to expose Keyvent as an AMD module or to the global object.
   if (typeof define === 'function' && typeof define.amd === 'object') define(definition);
   else this[moduleName] = definition();
 
