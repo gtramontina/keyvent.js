@@ -1,46 +1,44 @@
-!(function(moduleName, definition) {
+!(function (moduleName, definition) {
   // Whether to expose Keyvent as an AMD module or to the global object.
   if (typeof define === 'function' && typeof define.amd === 'object') define(definition);
   else this[moduleName] = definition();
 
-})('keyvent', function definition() {
+})('keyvent', function definition () {
 
-  function contextOn(element) {
+  function contextOn (element) {
     var exports = {};
     exports.on = contextOn;
 
-    exports.down = function(keys) {
+    exports.down = function (keys) {
       dispatch(element, 'keydown', keys);
     };
 
-    exports.up = function(keys) {
+    exports.up = function (keys) {
       dispatch(element, 'keyup', keys);
     };
 
     return exports;
   }
 
-  function dispatch(element, type, keys) {
+  function dispatch (element, type, keys) {
     var event = document.createEvent('HTMLEvents');
     event.initEvent(type, true, true);
     keys = normalizeKeys(keys);
     for (var i = 0; i < keys.length; i++) {
-      var keyCode = toKeyCode(keys[i])
-      event.which = keyCode;
-      MODIFIERS[keyCode] && (event[MODIFIERS[keyCode] + 'Key'] = true);
+      var keyCode = toKeyCode(keys[i]);
+      event.which = event.keyCode = keyCode;
+      if (MODIFIERS[keyCode]) event[MODIFIERS[keyCode] + 'Key'] = true;
       element.dispatchEvent(event);
-    };
+    }
   }
 
-  function normalizeKeys(keys) {
+  function normalizeKeys (keys) {
     if (!keys) return [0];
     if (isString(keys)) return keys.split(' ');
     return [keys];
   }
 
-  function isString(object) {
-    return typeof object === 'string';
-  }
+  function isString (object) { return typeof object === 'string'; }
 
   // Borrowed from https://github.com/madrobby/keymaster
   var ALIASES = {

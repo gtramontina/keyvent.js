@@ -1,0 +1,22 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="../node_modules/mocha-phantomjs/node_modules/mocha/mocha.css">
+    <title>keyvent.js - tests</title>
+</head>
+<body>
+    <main id="mocha"></mocha>
+
+    <script src="../node_modules/mocha-phantomjs/node_modules/mocha/mocha.js"></script>
+    <script src="components/expect.js/expect.js"></script>
+    <script src="components/happen/happen.js"></script>
+    <script src="components/happen/jquery/jquery.js"></script>
+
+    <script src="../keyvent.js"></script>
+    <script>mocha.ui('bdd');</script>
+    <script src="keyvent.test.js"></script>
+
+    <script>(window.mochaPhantomJS? window.mochaPhantomJS : mocha).run();</script>
+</body>
+</html>

@@ -1,6 +1,8 @@
 # Keyvent.js #
 ##### Keyboard events simulator. #####
 
+[![Build Status](https://travis-ci.org/gtramontina/keyvent.js.png?branch=master)](https://travis-ci.org/gtramontina/keyvent.js)
+
 ### Examples
 Simulate 'keydown' events on the 'document' element:
 
@@ -17,12 +19,12 @@ The same is valid for simulating 'keyup' events:
     keyvent.up('⇧ a');
 
 If you want to simulate keyboard events on other DOM elements, you have to set a new context (please note that the 'on' function takes a raw DOM element as parameter):
-    
+
     var headerDiv = document.getElementById('headerDiv');
     keyvent.on(headerDiv).down('control');
 
 You may want to keep a copy of this context to use later:
-    
+
     var headerDivKeyboard = keyvent.on(headerDiv);
     (...)
     headerDivKeyboard.up('space');
